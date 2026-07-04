@@ -284,6 +284,7 @@
 
   <!-- ====== SCREEN 4 — READINESS CHECK ====== -->
   <section class="screen" id="s4">
+    <button class="backlink" onclick="go(2)">← back</button>
     <div class="rc-bar"><i id="rcFill" style="width:0%"></i></div>
     <div class="rc-unit" id="rcUnit">Unit 1 · Biochemistry</div>
     <div class="rc-q" id="rcQ">—</div>
@@ -296,6 +297,7 @@
 
   <!-- ====== SCREEN 5 — YOU ARE HERE ====== -->
   <section class="screen" id="s5">
+    <button class="backlink" onclick="go(3)">← back</button>
     <div class="eyebrow">Let's see where you are...</div>
     <h2 id="s5head">Keep up! You still have time to reach your goal!</h2>
     <div class="track">
@@ -562,10 +564,13 @@ function renderS5(){
   const host = document.getElementById('s5units');
   const rows = perUnit.map(u=>{
     const strong = u.ratio >= 0.5;
+    const pct = Math.round(u.ratio*100);
+    const barW = strong ? pct : Math.max(pct, 6); // 0 分也露一小截，避免看起来是空 bug
     return `
       <div class="us-row">
         <div class="us-name">${u.name}</div>
-        <div class="us-track"><div class="us-fill ${strong?'strong':'weak'}" style="width:${Math.round(u.ratio*100)}%"></div></div>
+        <div class="us-track"><div class="us-fill ${strong?'strong':'weak'}" style="width:${barW}%"></div></div>
+        <div class="us-pct">${pct}%</div>
         <div class="us-tag ${strong?'strong':'weak'}">${strong?'strong':'gap'}</div>
       </div>`;
   }).join('');
