@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pulse — Unit 1 Biochemistry</title>
+<title>Pulse — Unit 3 Anatomy</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Newsreader:ital@0;1&display=swap');
 
@@ -206,7 +206,7 @@
       <path d="M2 30 L9 30 L13 23 L18 33 L23 27 L29 27" stroke="#1e4895" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
       <circle cx="29" cy="27" r="2.3" fill="#1e4895"/>
     </svg>
-    <span class="name">Pulse<span class="sub">Unit 1 · Biochemistry</span></span>
+    <span class="name">Pulse<span class="sub">Unit 3 · Anatomy & Physiology</span></span>
   </div>
   <div class="preview" id="preview">
     <span class="plab">Preview</span>
@@ -223,7 +223,7 @@
 
 <script>
 /* ============================================================
-   PULSE — Unit 1 (Biochemistry & Cell Biology)
+   PULSE — Unit 3 (Anatomy & Physiology)
    ------------------------------------------------------------
    DEV_PREVIEW = true  -> shows the path switcher (designer only)
    DEV_PREVIEW = false -> hides it; path comes from ?path=  (onboarding handoff)
@@ -247,238 +247,181 @@ function vid(id, title){ return {id, title, src:'Amoeba Sisters · YouTube'}; }
 function art(slug, title, preview){ return {url:OS+slug, title, src:'OpenStax Biology 2e · CC BY', preview}; }
 
 const MODULE = {
-  unit:'Unit 1 · Biochemistry & Cell Biology',
+  unit:`Unit 3 · Anatomy & Physiology`,
   concepts:[
-    /* ---- MACROMOLECULES (standard) ---- */
+    /* ---- HOMEOSTASIS (triage) ---- */
     {
-      id:'macro', tier:'standard', label:'Macromolecules',
-      lo:'Lesson 2 — how the body uses macromolecules from food; protein structure',
-      teach:`Big biological molecules are built from small repeating units. <b>Proteins</b> are chains of <b>amino acids</b>; the order is set by your DNA, and that order folds the protein into the shape that does its job.`,
-      reflect:`In one line: what happens to the protein in your food before it becomes "you"?`,
+      id:`homeostasis`, tier:`triage`, label:`Homeostasis`,
+      lo:`Lesson 15 — homeostasis and feedback; emergent properties`,
+      teach:`Homeostasis is how your body keeps internal conditions (temperature, blood sugar, pH) within a healthy <b>range</b>. It does this by constantly sensing and correcting — a moving balance, not a frozen one.`,
+      reflect:`In one line: does homeostasis mean your body stays perfectly constant?`,
       check:{
-        stem:`You eat a chicken breast — lots of protein. How does that protein become useful to your own cells?`,
+        stem:`What does homeostasis mean?`,
         options:[
-          {t:`It's absorbed whole and added straight to your muscles`, correct:false,
-           mc:`"The protein you eat transfers into you intact"`,
-           fix:`Food protein is first broken down into <b>amino acids</b> during digestion. Your cells then build <b>your own</b> proteins from those amino acids, following <b>your</b> DNA — not the chicken's.`,
-           video:vid('78QUeXVKiJ4','Biomolecules (Updated)'), article:art('3-introduction','Ch. 3 Biological Macromolecules','OpenStax §3 — how monomers (e.g. amino acids) link into polymers (e.g. proteins) and what each macromolecule class does.')},
-          {t:`It's broken into amino acids your cells use to build your own proteins`, correct:true},
-          {t:`It's turned straight into energy, with none used for building`, correct:false,
-           mc:`"Protein is just a fuel"`,
-           fix:`Amino acids are mainly <b>building blocks</b>. They can be burned for energy, but that's the backup role — their primary job is constructing your proteins.`,
-           video:vid('78QUeXVKiJ4','Biomolecules (Updated)'), article:art('3-introduction','Ch. 3 Biological Macromolecules','OpenStax §3 — proteins as polymers of amino acids and their structural roles.')},
+          {t:`The body holds every internal value perfectly constant`, correct:false,
+           mc:`"Homeostasis means perfectly constant"`,
+           fix:`Nothing in the body is frozen at one number. Homeostasis keeps variables within a healthy <b>range</b> by constantly correcting — your temperature and blood sugar rise and fall all day; the body just pulls them back. A dynamic balance, not a fixed value.`,
+           video:vid(`Iz0Q9nTZCw4`,`Homeostasis & Feedback`), article:art(`33-introduction`,`Ch. 33 The Animal Body & Homeostasis`,`OpenStax §33 — homeostasis maintains internal variables within a set range via feedback.`)},
+          {t:`The body keeps internal conditions within a healthy range by constantly correcting`, correct:true},
+          {t:`The body only reacts once something has gone badly wrong`, correct:false,
+           mc:`"Homeostasis only kicks in during emergencies"`,
+           fix:`Homeostatic control runs continuously, making small corrections before things drift far off — like a thermostat nudging all day, not waiting for a crisis.`,
+           video:vid(`Iz0Q9nTZCw4`,`Homeostasis & Feedback`), article:art(`33-introduction`,`Ch. 33 The Animal Body & Homeostasis`,`OpenStax §33 — negative feedback continuously returns variables to a set point.`)},
         ],
-        reask:{stem:`Why can't a cow's muscle protein simply become your muscle?`, options:[
-          {t:`It's digested to amino acids first; your cells rebuild proteins to your own DNA`, correct:true},
-          {t:`It is absorbed whole but stored unused`, correct:false},
-          {t:`Animal protein can't be used by humans at all`, correct:false}]}
+        reask:{stem:`You exercise and your body temperature starts to rise. What does homeostasis do?`, options:[
+          {t:`Triggers sweating to bring temperature back toward the set point`, correct:true},
+          {t:`Locks your temperature so it can't change`, correct:false},
+          {t:`Waits until you overheat, then acts`, correct:false}]}
       },
-      recap:`Food protein is digested into <b>amino acids</b>; your ribosomes rebuild <b>your own</b> proteins from them, guided by your DNA.`
+      recap:`Homeostasis keeps internal conditions in a healthy <b>range</b> by continuously sensing and correcting (like a thermostat) — a dynamic balance, not a frozen state.`
     },
 
-    /* ---- CELL STRUCTURE (triage) ---- */
+    /* ---- INNATE vs ADAPTIVE IMMUNITY (triage) ---- */
     {
-      id:'cell', tier:'triage', label:'Cell structure & organelles',
-      lo:'Lesson 3 — predict structure/organelles; protein synthesis and export',
-      teach:`Eukaryotic cells divide labor among <b>organelles</b>. Two matter most for energy: <b>chloroplasts</b> (capture light to make glucose) and <b>mitochondria</b> (break glucose down for ATP).`,
-      reflect:`In one line: which two energy organelles does a plant cell have?`,
+      id:`immunity`, tier:`triage`, label:`Innate vs adaptive immunity`,
+      lo:`Lesson 15 — innate vs adaptive immune defenses`,
+      teach:`You have two teams of immunity. <b>Innate</b> is fast and general — skin, inflammation, cells that attack anything foreign. <b>Adaptive</b> is slower but <b>specific</b> — it targets a particular pathogen and remembers it.`,
+      reflect:`In one line: what's the key difference between innate and adaptive immunity?`,
       check:{
-        stem:`Which is true about a typical plant leaf cell?`,
+        stem:`How do innate and adaptive immunity differ?`,
         options:[
-          {t:`It has chloroplasts but not mitochondria — plants don't respire`, correct:false,
-           mc:`"Plant cells have chloroplasts instead of mitochondria"`,
-           fix:`Plant cells have <b>both</b>. Chloroplasts make glucose; mitochondria respire it for ATP — which is why a plant keeps making energy at night, when photosynthesis stops.`,
-           video:vid('8IlzKri08kk','Cell Organelles'), article:art('4-introduction','Ch. 4 Cell Structure','OpenStax §4 — organelles of eukaryotic cells, including mitochondria and chloroplasts.')},
-          {t:`It has both chloroplasts and mitochondria`, correct:true},
-          {t:`It has mitochondria but makes its glucose in the nucleus`, correct:false,
-           mc:`"Glucose is made in the nucleus"`,
-           fix:`The nucleus stores DNA and directs the cell; it does not make glucose. Glucose is built in the <b>chloroplast</b>.`,
-           video:vid('8IlzKri08kk','Cell Organelles'), article:art('4-introduction','Ch. 4 Cell Structure','OpenStax §4 — the nucleus stores genetic information; energy organelles are separate.')},
+          {t:`They're the same system with a single response`, correct:false,
+           mc:`"The immune system is just one response"`,
+           fix:`There are two arms. Innate immunity is fast and general (barriers, inflammation, first responders); adaptive immunity is slower but specific — and it builds <b>memory</b> for that exact pathogen.`,
+           video:vid(`fSEFXl2XQpc`,`Immune System`), article:art(`42-introduction`,`Ch. 42 The Immune System`,`OpenStax §42 — innate (nonspecific) vs adaptive (specific) immunity.`)},
+          {t:`Innate is fast and general; adaptive is slower, specific, and remembers`, correct:true},
+          {t:`Adaptive immunity responds instantly the first time`, correct:false,
+           mc:`"Adaptive immunity is instant"`,
+           fix:`The FIRST time you meet a new pathogen, the adaptive response takes days to ramp up. It's fast only the SECOND time, thanks to memory cells.`,
+           video:vid(`fSEFXl2XQpc`,`Immune System`), article:art(`42-introduction`,`Ch. 42 The Immune System`,`OpenStax §42 — the adaptive response is slow on first exposure, fast on re-exposure.`)},
         ],
-        reask:{stem:`Where in a plant cell is glucose made, and where is it broken down for ATP?`, options:[
-          {t:`Made in chloroplasts; broken down in mitochondria`, correct:true},
-          {t:`Both happen in the nucleus`, correct:false},
-          {t:`Made in mitochondria; broken down in chloroplasts`, correct:false}]}
+        reask:{stem:`You catch a brand-new virus you've never had. Which defense responds within minutes to hours?`, options:[
+          {t:`Innate immunity (general first responders)`, correct:true},
+          {t:`Adaptive immunity, at full strength immediately`, correct:false},
+          {t:`Neither responds until you recover`, correct:false}]}
       },
-      recap:`Plant cells have <b>both</b> chloroplasts (make glucose) and mitochondria (release ATP). The nucleus directs the cell but isn't an energy factory.`
+      recap:`Innate = fast, general, no memory. Adaptive = slower, specific, and remembers. A brand-new pathogen leans on innate first; adaptive catches up and remembers for next time.`
     },
 
-    /* ---- MEMBRANE TRANSPORT (standard) ---- */
+    /* ---- SELF vs NON-SELF / AUTOIMMUNITY (standard) ---- */
     {
-      id:'membrane', tier:'standard', label:'Membranes & osmosis',
-      lo:'Lesson 4 — passive vs active transport; predict water movement by osmosis',
-      teach:`A cell membrane is <b>selectively permeable</b>: some things cross freely, others need help. <b>Osmosis</b> is the special case of <b>water</b> crossing the membrane.`,
-      reflect:`In one line: in osmosis, what moves — and which way?`,
+      id:`selfnonself`, tier:`standard`, label:`Self vs non-self`,
+      lo:`Lesson 15 — the immune system distinguishes self from non-self`,
+      teach:`A core job of the immune system is telling <b>self</b> (your own cells) from <b>non-self</b> (invaders). It attacks non-self and leaves your own cells alone — usually.`,
+      reflect:`In one line: what goes wrong in an autoimmune disease?`,
       check:{
-        stem:`In osmosis, what actually moves across the membrane?`,
+        stem:`What happens in an autoimmune disease?`,
         options:[
-          {t:`The dissolved solute particles, to even out concentration`, correct:false,
-           mc:`"Osmosis is solute moving"`,
-           fix:`In osmosis it's <b>water</b> that moves, not the solute. Water moves toward the side with <b>more</b> dissolved solute — often because the membrane blocks the solute itself.`,
-           video:vid('L-osEc07vMs','Osmosis & Diffusion'), article:art('5-introduction','Ch. 5 Structure & Function of Plasma Membranes','OpenStax §5 — passive transport and osmosis across a selectively permeable membrane.')},
-          {t:`Water moves toward the side with more dissolved solute`, correct:true},
-          {t:`Both move freely until everything is equal`, correct:false,
-           mc:`"The membrane lets everything through"`,
-           fix:`The membrane is <b>selective</b> — water crosses, but many solutes can't. That selectivity is the whole point of a membrane.`,
-           video:vid('L-osEc07vMs','Osmosis & Diffusion'), article:art('5-introduction','Ch. 5 Structure & Function of Plasma Membranes','OpenStax §5 — selective permeability of the plasma membrane.')},
+          {t:`The immune system is too weak to fight anything`, correct:false,
+           mc:`"Autoimmune means a weak immune system"`,
+           fix:`It's not weakness — it's a targeting error. In autoimmune disease the immune system mistakenly attacks the body's <b>own</b> (self) cells, treating them as invaders.`,
+           video:vid(`fSEFXl2XQpc`,`Immune System`), article:art(`42-introduction`,`Ch. 42 The Immune System`,`OpenStax §42 — self-tolerance and what happens when it fails (autoimmunity).`)},
+          {t:`The immune system mistakenly attacks the body's own cells`, correct:true},
+          {t:`The body stops making any immune cells`, correct:false,
+           mc:`"Autoimmune means no immune cells"`,
+           fix:`The immune system is very much active — too active in the wrong direction. The problem is it fails to recognize self, not that it's absent.`,
+           video:vid(`fSEFXl2XQpc`,`Immune System`), article:art(`42-introduction`,`Ch. 42 The Immune System`,`OpenStax §42 — immune recognition of self vs non-self antigens.`)},
         ],
-        reask:{stem:`A cell is dropped into very salty water. Which way does water move?`, options:[
-          {t:`Out of the cell, toward the higher solute outside`, correct:true},
-          {t:`Into the cell, to dilute the inside`, correct:false},
-          {t:`Nowhere — salt can't affect a cell`, correct:false}]}
+        reask:{stem:`A healthy immune system leaves your own cells alone because it can…`, options:[
+          {t:`Distinguish self from non-self`, correct:true},
+          {t:`Only see bacteria, nothing else`, correct:false},
+          {t:`Turn off completely at rest`, correct:false}]}
       },
-      recap:`Osmosis = <b>water</b> moving across a selective membrane toward higher solute. The solute usually stays put; the membrane is selectively permeable.`
+      recap:`The immune system tells self from non-self and attacks only non-self. Autoimmune disease is a targeting <b>error</b> (attacking self) — not a weak or absent immune system.`
     },
 
-    /* ---- ENZYMES (standard) ---- */
+    /* ---- VACCINES (triage) — the showcase ---- */
     {
-      id:'enzymes', tier:'standard', label:'Enzymes',
-      lo:'Lesson 6 — explain the role of enzymes in metabolism',
-      teach:`Enzymes are <b>catalysts</b>. They speed a reaction by lowering its <b>activation energy</b> — the hump a reaction must clear to get going. Being catalysts, they're <b>not used up</b>: one enzyme works again and again.`,
-      reflect:`In one line: an enzyme lowers what — and what does it NOT change?`,
+      id:`vaccines`, tier:`triage`, label:`How vaccines work`,
+      lo:`Lesson 15 — how vaccines work with the immune system`,
+      teach:`A vaccine gives your immune system a safe <b>preview</b> of a pathogen — a weakened, inactivated, or piece version — so it builds memory <b>without</b> you getting the disease.`,
+      reflect:`In one line: does a vaccine give you the disease? why or why not?`,
       check:{
-        stem:`A cell runs the same reaction thousands of times. What happens to the enzyme that catalyzes it?`,
+        stem:`How does a vaccine protect you?`,
         options:[
-          {t:`It gets used up, so the cell makes a fresh one each time`, correct:false,
-           mc:`"Enzymes are consumed like a reactant"`,
-           fix:`Enzymes aren't reactants — they're reusable catalysts, released unchanged at the end. That's why a tiny amount of enzyme can process huge numbers of molecules.`,
-           video:vid('qgVFkRn8f10','Enzymes (Updated)'), article:art('6-5-enzymes','§6.5 Enzymes','OpenStax §6.5 — how enzymes lower activation energy and how conditions/inhibitors affect them.')},
-          {t:`It's reused — it speeds the reaction without being consumed`, correct:true},
-          {t:`It adds energy to the reactants to force the reaction forward`, correct:false,
-           mc:`"Enzymes push energy into the reaction"`,
-           fix:`Enzymes don't supply energy. They lower the activation-energy barrier so the reaction proceeds more easily; the energy of reactants and products is unchanged — only the path is made easier.`,
-           video:vid('qgVFkRn8f10','Enzymes (Updated)'), article:art('6-5-enzymes','§6.5 Enzymes','OpenStax §6.5 — enzymes lower activation energy without changing reaction energetics.')},
+          {t:`It gives you a mild version of the actual disease`, correct:false,
+           mc:`"A vaccine gives you the disease"`,
+           fix:`A vaccine shows your immune system a harmless preview — a weakened, inactivated, or piece of the pathogen — so it can build memory cells. It's not the disease; that's the whole point. (Feeling briefly sore or tired is your immune system practicing, not the illness.)`,
+           video:vid(`uVUf_pt7Sh0`,`Antibiotics, Antivirals & Vaccines`), article:art(`42-introduction`,`Ch. 42 The Immune System`,`OpenStax §42 — vaccination primes adaptive immunity and memory without causing disease.`)},
+          {t:`It shows your immune system a harmless preview so it builds memory in advance`, correct:true},
+          {t:`It kills germs directly, like an antibiotic`, correct:false,
+           mc:`"A vaccine kills germs like a drug"`,
+           fix:`A vaccine doesn't attack germs itself. It trains YOUR immune system ahead of time so that if the real pathogen shows up, your memory cells respond fast.`,
+           video:vid(`uVUf_pt7Sh0`,`Antibiotics, Antivirals & Vaccines`), article:art(`42-introduction`,`Ch. 42 The Immune System`,`OpenStax §42 — vaccines train the immune system rather than acting like antibiotics.`)},
         ],
-        reask:{stem:`Which best describes how an enzyme speeds up a reaction?`, options:[
-          {t:`It lowers the activation energy and is released unchanged`, correct:true},
-          {t:`It adds energy to push the reaction forward`, correct:false},
-          {t:`It is consumed, so the cell remakes it each time`, correct:false}]}
+        reask:{stem:`Why don't you usually get sick with the disease after a vaccine?`, options:[
+          {t:`It contains only a weakened/inactivated/partial pathogen — enough to train, not infect`, correct:true},
+          {t:`It's the full live disease, just smaller`, correct:false},
+          {t:`It sterilizes your blood`, correct:false}]}
       },
-      recap:`An enzyme <b>lowers activation energy</b> and comes out unchanged — reusable, not a reactant, and not an energy source.`
+      recap:`A vaccine is a safe preview (weakened/inactivated/piece of a pathogen) that builds memory cells — protection <b>without</b> the disease. It trains your immune system, it doesn't attack germs directly.`
     },
 
-    /* ---- CELLULAR RESPIRATION (triage) ---- */
+    /* ---- REPRODUCTIVE HORMONES & THE PILL (standard) ---- */
     {
-      id:'cellresp', tier:'triage', label:'Cellular respiration',
-      lo:'Lesson 6/7 — inputs/outputs of aerobic respiration; relation to breathing',
-      teach:`Aerobic <b>cellular respiration</b> breaks down glucose and transfers its stored energy into <b>ATP</b>. In: glucose + O&#8322;. Out: CO&#8322; + water + ATP. <b>Every</b> cell that needs energy does this — plants included.`,
-      reflect:`In one line: when does a plant do cellular respiration?`,
+      id:`repro`, tier:`standard`, label:`Reproductive hormones & the pill`,
+      lo:`Lesson 17 — reproductive hormones, the cycle, and how the pill prevents pregnancy`,
+      teach:`The menstrual cycle is run by hormones (FSH, LH, estrogen, progesterone) that trigger an egg to mature and release — <b>ovulation</b>. The birth-control pill uses hormones to <b>prevent</b> ovulation, so no egg is released.`,
+      reflect:`In one line: how does the pill prevent pregnancy?`,
       check:{
-        stem:`Which statement about aerobic cellular respiration is correct?`,
+        stem:`How does the birth-control pill mainly prevent pregnancy?`,
         options:[
-          {t:`Only animals do it; plants just photosynthesize`, correct:false,
-           mc:`"Plants don't do cellular respiration"`,
-           fix:`Plants have mitochondria and respire around the clock, day and night. Photosynthesis is something plants do <i>in addition</i>, to build the glucose — it doesn't replace respiration.`,
-           video:vid('4Eo7JtRA7lg','Cellular Respiration & ATP'), article:art('7-introduction','Ch. 7 Cellular Respiration','OpenStax §7 — respiration extracts energy from glucose to make ATP in all aerobic cells.')},
-          {t:`It releases the energy stored in glucose and captures it as ATP`, correct:true},
-          {t:`It's just another word for breathing`, correct:false,
-           mc:`"Cellular respiration = breathing"`,
-           fix:`Breathing (ventilation) moves air in and out at the whole-body level. Cellular respiration is the <i>chemical</i> process inside cells that makes ATP. Breathing supplies the O&#8322; respiration uses — related, but not the same.`,
-           video:vid('4Eo7JtRA7lg','Cellular Respiration & ATP'), article:art('7-introduction','Ch. 7 Cellular Respiration','OpenStax §7 — cellular respiration vs. ventilation ("breathing").')},
+          {t:`It's a physical barrier that blocks sperm`, correct:false,
+           mc:`"The pill is a barrier that blocks sperm"`,
+           fix:`The pill isn't a barrier (that's a condom or diaphragm). It uses hormones to stop <b>ovulation</b> — if no egg is released, there's nothing for sperm to fertilize.`,
+           video:vid(`h36poEtEbi4`,`Menstrual Cycle & Hormones`), article:art(`43-introduction`,`Ch. 43 Animal Reproduction & Development`,`OpenStax §43 — hormonal control of the reproductive cycle and ovulation.`)},
+          {t:`Its hormones prevent ovulation, so no egg is released`, correct:true},
+          {t:`It works by ending an existing pregnancy`, correct:false,
+           mc:`"The pill ends a pregnancy"`,
+           fix:`The pill prevents pregnancy from starting (mainly by stopping ovulation); it is not the same as an abortion. It acts before there's any pregnancy to end.`,
+           video:vid(`h36poEtEbi4`,`Menstrual Cycle & Hormones`), article:art(`43-introduction`,`Ch. 43 Animal Reproduction & Development`,`OpenStax §43 — hormonal contraception suppresses ovulation.`)},
         ],
-        reask:{stem:`A potted plant sits in a dark closet for a week. What's happening in its cells?`, options:[
-          {t:`It keeps doing cellular respiration, using stored glucose`, correct:true},
-          {t:`It photosynthesizes using the small amount of closet light`, correct:false},
-          {t:`Nothing — without sun a plant's cells go dormant`, correct:false}]}
+        reask:{stem:`If the pill's hormones stop ovulation, why does that prevent pregnancy?`, options:[
+          {t:`With no egg released, sperm has nothing to fertilize`, correct:true},
+          {t:`Sperm are physically blocked at the cervix`, correct:false},
+          {t:`The uterus is removed`, correct:false}]}
       },
-      recap:`Respiration <b>releases glucose's energy as ATP</b> (glucose + O&#8322; &rarr; CO&#8322; + water + ATP). It runs in every cell, plants included — and isn't the same as breathing.`
-    },
-
-    /* ---- PHOTOSYNTHESIS / TREE MASS (triage) — the showcase ---- */
-    {
-      id:'photo', tier:'triage', label:`Photosynthesis & a tree's mass`,
-      lo:`Lesson 8 — where a tree's mass comes from; trees as carbon sinks`,
-      teach:`Photosynthesis uses <b>light energy</b> to build glucose from <b>CO&#8322; and water</b>, releasing O&#8322;. The carbon in that glucose comes from <b>CO&#8322; in the air</b> — and that carbon is what wood is mostly made of.`,
-      reflect:`In one line: a tree's mass is mostly carbon — where did that carbon come from?`,
-      check:{
-        stem:`A tree grows from a seedling into tons of wood. Where does most of that added mass come from?`,
-        options:[
-          {t:`From the soil, drawn up through the roots`, correct:false,
-           mc:`"A plant's mass comes from the soil"`,
-           fix:`This is the most common misconception in biology — yet soil barely loses weight as a tree grows. The bulk of a tree's dry mass is <b>carbon</b>, pulled from <b>CO&#8322; in the air</b> during photosynthesis. Roots supply water and trace minerals, not the bulk mass.`,
-           video:vid('CMiPYHNNg28','Photosynthesis (Updated)'), article:art('8-introduction','Ch. 8 Photosynthesis','OpenStax §8 — carbon for sugars comes from atmospheric CO&#8322;, fixed in the Calvin cycle.')},
-          {t:`From carbon in the CO&#8322; it captures from the air`, correct:true},
-          {t:`From the water it absorbs`, correct:false,
-           mc:`"A plant's mass comes from water"`,
-           fix:`Water is a real reactant and supplies hydrogen — but the <b>carbon skeleton</b> of glucose (and the cellulose built from it) comes from atmospheric CO&#8322;. That carbon backbone is the bulk of the dry mass — which is exactly why forests are carbon sinks.`,
-           video:vid('CMiPYHNNg28','Photosynthesis (Updated)'), article:art('8-introduction','Ch. 8 Photosynthesis','OpenStax §8 — water supplies hydrogen; carbon comes from CO&#8322;.')},
-        ],
-        reask:{stem:`Why are forests called "carbon sinks"?`, options:[
-          {t:`Trees pull CO&#8322; from the air and lock the carbon into wood`, correct:true},
-          {t:`Trees soak up carbon from the soil through their roots`, correct:false},
-          {t:`Trees release stored carbon as they grow larger`, correct:false}]}
-      },
-      recap:`A tree's mass is mostly <b>carbon pulled from the air's CO&#8322;</b>, not the soil — which is why growing forests act as <b>carbon sinks</b>.`
-    },
-
-    /* ---- CELL SIGNALING (advanced) ---- */
-    {
-      id:'signal', tier:'advanced', label:'Cell signaling',
-      lo:'Lesson 5 — chemical signaling and how it affects target cells',
-      teach:`Cells communicate with chemical signals like <b>hormones</b>. A hormone can travel everywhere in the blood, but a cell only responds if it has the matching <b>receptor</b>.`,
-      reflect:`In one line: why don't all cells react to a hormone that's everywhere in the blood?`,
-      check:{
-        stem:`Insulin travels in the blood to the whole body. Which cells respond to it?`,
-        options:[
-          {t:`Every cell, since the blood carries it to them all`, correct:false,
-           mc:`"A hormone affects every cell it reaches"`,
-           fix:`The signal reaches everywhere, but only cells with the matching <b>receptor</b> can respond. Specificity comes from the receptor, not from where the hormone goes.`,
-           video:vid('-dbRterutHY','Cell Communication'), article:art('9-introduction','Ch. 9 Cell Communication','OpenStax §9 — signaling molecules act only on cells bearing the matching receptor.')},
-          {t:`Only cells with the matching receptor (the target cells)`, correct:true},
-          {t:`Only cells right next to the pancreas`, correct:false,
-           mc:`"Signaling only works on nearby cells"`,
-           fix:`Hormones act at a distance through the blood. Reaching a cell isn't enough — and being close isn't required. The receptor decides who responds.`,
-           video:vid('-dbRterutHY','Cell Communication'), article:art('9-introduction','Ch. 9 Cell Communication','OpenStax §9 — endocrine signaling acts at a distance; receptors confer specificity.')},
-        ],
-        reask:{stem:`Why don't all your cells react to a hormone even though it's in the blood everywhere?`, options:[
-          {t:`Only target cells have the matching receptor`, correct:true},
-          {t:`The hormone only reaches some cells`, correct:false},
-          {t:`Cells take turns responding`, correct:false}]}
-      },
-      recap:`A hormone reaches all cells, but only <b>target cells with the matching receptor</b> respond. Specificity is about receptors, not distance.`
+      recap:`Reproductive hormones drive the cycle and ovulation. The pill uses hormones to <b>prevent ovulation</b> (no egg released) — not a physical barrier, and not the same as ending a pregnancy.`
     },
   ],
 
   /* ---- SYNTHESIS / TRANSFER (advanced only) ---- */
   transfer:{
-    id:'transfer', tier:'advanced', label:'Putting it together',
-    lo:'Lessons 7-8 — relate cellular respiration and photosynthesis',
-    teach:`Photosynthesis <b>stores</b> energy in glucose; respiration <b>releases</b> it. A plant cell does <b>both</b>: chloroplasts capture light while mitochondria burn glucose for ATP.`,
-    reflect:`In one line: name one way photosynthesis is NOT just respiration reversed.`,
+    id:`transfer`, tier:`advanced`, label:`Putting it together`,
+    lo:`Lesson 15 — adaptive immunity, memory, and lasting vaccine protection`,
+    teach:`Vaccines work because adaptive immunity makes <b>memory</b> cells. The first exposure (or a vaccine) is slow; the memory it leaves lets a later, real infection be crushed fast.`,
+    reflect:`In one line: why can a vaccine protect you for years?`,
     check:{
-      stem:`On a sunny afternoon a leaf is photosynthesizing. Is it also doing cellular respiration?`,
+      stem:`Why can one vaccine protect you for years afterward?`,
       options:[
-        {t:`No — a plant cell does one or the other, never both at once`, correct:false,
-         mc:`"The two processes can't run at the same time"`,
-         fix:`Both run simultaneously. In bright light photosynthesis usually <i>outpaces</i> respiration, so the leaf shows a <b>net</b> release of O&#8322; — but mitochondria never stop. "Net" is the key word, not "instead."`,
-         video:vid('uixA8ZXx0KU','Photosynthesis vs. Cellular Respiration'), article:art('8-introduction','Ch. 8 Photosynthesis','OpenStax §8 — photosynthesis and respiration form a linked energy cycle in plant cells.')},
-        {t:`Yes — chloroplasts photosynthesize while mitochondria respire at the same time`, correct:true},
-        {t:`Yes, but photosynthesis is just cellular respiration running in reverse`, correct:false,
-         mc:`"Photosynthesis is respiration backwards"`,
-         fix:`The summary equations look like mirror images, but the <b>pathways, locations, and enzymes differ</b> — chloroplast vs. mitochondrion, light reactions vs. the electron transport chain. One is not literally the other in reverse.`,
-         video:vid('uixA8ZXx0KU','Photosynthesis vs. Cellular Respiration'), article:art('8-introduction','Ch. 8 Photosynthesis','OpenStax §8 — the two processes are linked but mechanistically distinct.')},
+        {t:`The vaccine keeps circulating in your blood the whole time`, correct:false,
+         mc:`"The vaccine itself stays in you for years"`,
+         fix:`The vaccine clears out quickly. What lasts is the <b>memory cells</b> your adaptive immune system made — they persist and respond fast if the real pathogen ever appears.`,
+         video:vid(`uVUf_pt7Sh0`,`Antibiotics, Antivirals & Vaccines`), article:art(`42-introduction`,`Ch. 42 The Immune System`,`OpenStax §42 — memory B and T cells provide long-lasting immunity.`)},
+        {t:`It leaves long-lived memory cells that respond fast to the real pathogen`, correct:true},
+        {t:`It permanently kills the pathogen everywhere`, correct:false,
+         mc:`"A vaccine wipes out the pathogen forever"`,
+         fix:`A vaccine doesn't eliminate the pathogen from the world — it prepares YOUR body. Protection comes from your own memory cells being ready.`,
+         video:vid(`uVUf_pt7Sh0`,`Antibiotics, Antivirals & Vaccines`), article:art(`42-introduction`,`Ch. 42 The Immune System`,`OpenStax §42 — immunological memory is the basis of lasting protection.`)},
       ],
-      reask:{stem:`Which is true of a leaf cell on a bright afternoon?`, options:[
-        {t:`Both photosynthesis and respiration are running`, correct:true},
-        {t:`Only photosynthesis is running`, correct:false},
-        {t:`Photosynthesis has switched respiration off`, correct:false}]}
+      reask:{stem:`A booster shot works by…`, options:[
+        {t:`Strengthening and refreshing your memory-cell response`, correct:true},
+        {t:`Adding the live disease to finish the job`, correct:false},
+        {t:`Replacing your immune system`, correct:false}]}
     },
-    recap:`Plant cells run <b>both</b> at once — chloroplasts store energy in glucose, mitochondria release it as ATP. Linked, but not simple reverses.`
+    recap:`Lasting protection comes from adaptive immunity's <b>memory cells</b>, not the vaccine lingering — a preview now means a fast, strong response to the real thing later.`
   },
 
   wrap:{
-    prompt:`In your own words: where does the mass of a tree come from, and why does that matter for climate?`,
-    confLabel:`How confident are you on this unit now?`
+    prompt:`In your own words: why doesn't a vaccine give you the disease?`,
+    confLabel:`How confident are you on anatomy & physiology now?`
   },
 
-  /* ---- course materials (browse before the unit) ----
-     Put your 4 PDFs in a /materials folder next to this file,
-     keeping these filenames (or edit the src values). */
   materials:[
-    {label:'Syllabus',        src:'./materials/syllabus.pdf'},
-    {label:'Schedule',        src:'./materials/schedule.pdf'},
-    {label:'Exam Materials',  src:'./materials/exam-materials.pdf'},
-    {label:'Typical Lesson',  src:'./materials/typical-lesson.pdf'},
+    {label:`Syllabus`,        src:`./materials/syllabus.pdf`},
+    {label:`Schedule`,        src:`./materials/schedule.pdf`},
+    {label:`Exam Materials`,  src:`./materials/exam-materials.pdf`},
+    {label:`Typical Lesson`,  src:`./materials/typical-lesson.pdf`},
   ]
 };
 
@@ -489,13 +432,15 @@ const TIER_RANK = {triage:1, standard:2, advanced:3};
 const tr = x => TIER_RANK[String(x).toLowerCase()];
 
 let PATH = 'Advanced';
+let unitOrder = [];   // ordered unit file basenames from onboarding (weakest first)
 (function(){
   const q = new URLSearchParams(location.search).get('path');         // ?path=Advanced (http)
-  const h = (location.hash || '').replace(/^#/,'').replace(/^path=/,''); // #Advanced or #path=Advanced (works on file://)
+  const h = (location.hash || '').replace(/^#/,'').replace(/^path=/,''); // #Advanced|unit-a,unit-b,... (works on file://)
   const raw = q || h;
   if(raw){
-    const p = raw.toLowerCase();
-    PATH = p.charAt(0).toUpperCase() + p.slice(1);
+    const parts = raw.split('|');
+    if(parts[0]){ const p = parts[0].toLowerCase(); PATH = p.charAt(0).toUpperCase() + p.slice(1); }
+    if(parts[1]){ unitOrder = parts[1].split(',').filter(Boolean); }
   }
 })();
 
@@ -533,7 +478,7 @@ function renderMaterials(){
     <div class="mat-tabs" id="mattabs">${tabs}</div>
     <div class="mat-viewer" id="matframe"></div>
     <p class="mat-note">Not loading? <a id="matopen" href="${MODULE.materials[0].src}" target="_blank" rel="noopener">open this PDF in a new tab &#8599;</a> &middot; rendered inline — view over Live Server or GitHub Pages (not a file:// path).</p>
-    <button class="btn center" id="startunit">Start Unit 1 &rarr;</button>
+    <button class="btn center" id="startunit">Start Unit 3 &rarr;</button>
   `, {prog:false, wide:true});
   const host = document.getElementById('matframe');
   renderPdfInto(MODULE.materials[0].src, host);
@@ -738,8 +683,8 @@ function renderDone(){
   show(`
     <div class="done">
       <div class="eyebrow" style="color:var(--moss)">Unit complete</div>
-      <div class="big">Biochemistry, handled.</div>
-      <p class="sub">You worked through the energy and cell concepts that show up most on the cumulative final — and caught the misconceptions that trip most people up.</p>
+      <div class="big">Anatomy, handled.</div>
+      <p class="sub">You worked through the immune-system and physiology concepts that show up most on the cumulative final — and caught the misconceptions that trip most people up.</p>
       <div class="done-stats">
         <div class="ds"><div class="n">${stats.firstTry}/${stops.length}</div><div class="l">right first try</div></div>
         <div class="ds"><div class="n">${stats.reteaches}</div><div class="l">reteaches used</div></div>
@@ -760,7 +705,15 @@ function renderDone(){
     </div>
   `, {prog:false});
   document.getElementById('restart').onclick = startPath;
-  document.getElementById('nextunit').onclick = ()=>alert('Hook this up to the next unit in the path (e.g. Genetics).');
+  document.getElementById('nextunit').onclick = ()=>{
+    const cur = (location.pathname.split('/').pop()||'').replace(/\.html$/,'');
+    const idx = unitOrder.indexOf(cur);
+    if(idx >= 0 && idx < unitOrder.length-1){
+      location.href = unitOrder[idx+1] + '.html#' + PATH + '|' + unitOrder.join(',');
+    } else {
+      alert(unitOrder.length ? 'That was the last unit in your plan 🎉' : 'Next unit isn\'t wired yet — pass an ordered plan from onboarding.');
+    }
+  };
 }
 
 /* ---- path control ---- */
