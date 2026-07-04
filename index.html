@@ -611,8 +611,11 @@ function renderS6(){
 
 /* init */
 document.getElementById('startBtn').onclick = ()=>{
+  const plan = state.plan || [];
+  const order = plan.map(u=>u.file).join(',');
+  const first = plan.length ? plan[0].file : 'unit-biochem';
   const path = state.path || 'Advanced';
-  location.href = 'unit-biochem-backup.html#' + path;
+  location.href = first + '.html#' + path + '|' + order;
 };
 go(0);
 </script>
