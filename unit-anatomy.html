@@ -147,6 +147,31 @@
   .note-row .note-label{flex:0 0 200px;font-size:14px;font-weight:600;color:var(--ink);}
   .note-row .note-val{flex:1;font-size:14px;color:var(--ink-soft);line-height:1.5;word-break:break-word;}
   .note-row .note-val.none{color:var(--ink-faint);font-style:italic;}
+  /* unit opening outcomes */
+  .outcomes{max-width:560px;margin:22px auto 0;padding:0;list-style:none;text-align:left;}
+  .outcomes li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:15px;color:var(--ink-soft);line-height:1.5;}
+  .outcomes li .onum{flex:0 0 24px;height:24px;border-radius:50%;background:var(--clay-soft);color:var(--clay);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .mat-intro{text-align:center;color:var(--ink-soft);font-size:14px;margin:26px auto 4px;max-width:520px;}
+  /* checklist (done + summary) */
+  .checklist-block{max-width:560px;margin:34px auto 0;text-align:left;}
+  .checklist-block h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center;margin-bottom:14px;font-weight:600;}
+  .ck-item{display:flex;gap:11px;align-items:flex-start;padding:11px 13px;border:1px solid var(--line-soft);border-radius:10px;margin-bottom:8px;cursor:pointer;font-size:14px;color:var(--ink-soft);line-height:1.5;transition:.12s;}
+  .ck-item:hover{border-color:var(--line);}
+  .ck-item input{margin-top:2px;width:16px;height:16px;flex-shrink:0;accent-color:var(--moss);cursor:pointer;}
+  .ck-item b{color:var(--ink);font-weight:600;}
+  .ck-item.on span{opacity:.5;text-decoration:line-through;}
+  /* final summary */
+  .sum-sheet{max-width:600px;margin:8px auto 0;text-align:left;}
+  .sum-unit{margin-bottom:22px;}
+  .sum-unit h4{font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:11px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
+  .sum-unit h4 .um{font-size:12px;font-weight:600;color:var(--ink-faint);font-family:'Inter',sans-serif;letter-spacing:.04em;}
+  .sum-focus{max-width:600px;margin:8px auto 30px;background:var(--clay-soft);border:1px solid var(--clay);border-radius:var(--r);padding:20px 24px;text-align:left;}
+  .sum-focus h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);font-weight:700;margin-bottom:12px;}
+  .sum-focus ul{list-style:none;padding:0;}
+  .sum-focus li{font-size:14px;color:var(--ink);padding:8px 0;border-bottom:1px solid rgba(30,72,149,.14);display:flex;justify-content:space-between;gap:12px;}
+  .sum-focus li:last-child{border-bottom:none;}
+  .sum-focus li .fu{color:var(--clay);font-weight:600;font-size:12px;white-space:nowrap;}
+  .sum-empty{color:var(--moss);font-size:14px;}
 
   .reveal{max-width:560px;margin:0 auto 4px;background:#f6f4ee;border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;text-align:left;}
   .reveal .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:8px;}
@@ -192,12 +217,60 @@
   .mat-viewer canvas{display:block;margin:0 auto 14px;max-width:100%;box-shadow:0 1px 6px rgba(0,0,0,.12);background:#fff;border-radius:4px;}
   .mat-loading{color:var(--ink-faint);font-size:13px;text-align:center;padding:40px 20px;line-height:1.6;}
   .mat-note{text-align:center;font-size:12px;color:var(--ink-faint);margin-top:12px;}
+
+  /* ---- Rise-style sidebar ---- */
+  .tb-left{display:flex;align-items:center;gap:6px;}
+  .layout{flex:1;display:flex;align-items:stretch;min-height:0;}
+  .sidebar{flex:0 0 272px;border-right:1px solid var(--line);background:#fbfaf7;overflow-y:auto;padding:20px 14px 48px;}
+  .content{flex:1;display:flex;flex-direction:column;min-width:0;}
+  .sb-head{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:2px 6px 14px;}
+  .sb-unit{border-radius:11px;margin-bottom:3px;}
+  .sb-urow{display:flex;align-items:center;gap:10px;padding:11px 10px;border-radius:11px;transition:background .12s;}
+  .sb-urow[data-unit]{cursor:pointer;}
+  .sb-urow[data-unit]:hover{background:#efece4;}
+  .sb-unit.locked .sb-urow{opacity:.45;}
+  .sb-unit.current > .sb-urow{background:var(--ink);}
+  .sb-unit.current > .sb-urow .sb-uname{color:#fff;font-weight:600;}
+  .sb-mark{width:23px;height:23px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1.5px solid var(--line);color:var(--ink-faint);background:#fff;}
+  .sb-unit.done .sb-mark{background:var(--moss);border-color:var(--moss);color:#fff;}
+  .sb-unit.current > .sb-urow .sb-mark{background:var(--clay);border-color:var(--clay);color:#fff;}
+  .sb-uname{font-size:14px;color:var(--ink);flex:1;line-height:1.25;}
+  .sb-utag{font-size:9px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;flex-shrink:0;}
+  .sb-utag.unlk{color:var(--clay);}
+  .sb-utag.done{color:var(--moss);}
+  .sb-concepts{padding:2px 0 8px 12px;margin:2px 0 6px 21px;border-left:1.5px solid var(--line-soft);}
+  .sb-crow{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:8px;font-size:13px;color:var(--ink-soft);}
+  .sb-crow.click{cursor:pointer;}
+  .sb-crow.click:hover{background:#efece4;}
+  .sb-crow.cur{color:var(--ink);font-weight:600;}
+  .sb-crow.up{opacity:.5;}
+  .sb-cdot{width:16px;height:16px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;border:1.5px solid var(--line);color:var(--ink-faint);background:#fff;}
+  .sb-crow.done .sb-cdot{background:var(--moss);border-color:var(--moss);color:#fff;}
+  .sb-crow.cur .sb-cdot{background:var(--clay);border-color:var(--clay);color:#fff;}
+  .sb-caret{color:var(--ink-faint);font-size:11px;transition:transform .2s;flex-shrink:0;}
+  .sb-unit.exp > .sb-urow .sb-caret{transform:rotate(180deg);}
+  .sb-unit.current > .sb-urow .sb-caret{color:#fff;}
+  .sb-urow{cursor:pointer;}
+  .sb-utag.lock{color:var(--ink-faint);}
+  .sb-goto{display:block;width:100%;text-align:left;background:none;border:none;cursor:pointer;font:inherit;font-size:12px;font-weight:600;color:var(--clay);padding:5px 8px 9px;}
+  .sb-goto:hover{text-decoration:underline;}
+  .sb-lock{font-size:11.5px;color:var(--ink-faint);font-style:italic;padding:5px 8px 9px;line-height:1.4;}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--ink);}
+  .sb-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:25;}
+  @media(max-width:900px){
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:272px;padding-top:76px;z-index:30;transform:translateX(-100%);transition:transform .25s;box-shadow:0 0 34px rgba(0,0,0,.18);}
+    .sidebar.open{transform:none;}
+    .menu-toggle{display:inline-flex;}
+    .sb-backdrop.show{display:block;}
+  }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
 
 <header class="topbar">
+  <div class="tb-left">
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
   <div class="logo">
     <svg width="34" height="34" viewBox="0 0 38 38" fill="none" aria-label="Pulse logo">
       <path d="M5 14 L19 8 L33 14 L19 20 Z" stroke="#23291F" stroke-width="1.8" stroke-linejoin="round"/>
@@ -207,6 +280,7 @@
       <circle cx="29" cy="27" r="2.3" fill="#1e4895"/>
     </svg>
     <span class="name">Pulse<span class="sub">Unit 3 · Anatomy & Physiology</span></span>
+  </div>
   </div>
   <div class="preview" id="preview">
     <span class="plab">Preview</span>
@@ -218,8 +292,14 @@
   </div>
 </header>
 
-<div class="prog" id="prog"></div>
-<main id="main"></main>
+<div class="sb-backdrop" id="sbBackdrop"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="content">
+    <div class="prog" id="prog"></div>
+    <main id="main"></main>
+  </div>
+</div>
 
 <script>
 /* ============================================================
@@ -444,12 +524,100 @@ let unitOrder = [];   // ordered unit file basenames from onboarding (weakest fi
   }
 })();
 
-let stops = [], pos = 0, attempts = 0, conf = 0, lastWrong = null, notes = {}, finalReflection = '';
+let stops = [], pos = 0, attempts = 0, conf = 0, lastWrong = null, notes = {}, finalReflection = '', struggled = new Set();
 const esc = s => String(s).replace(/[&<>"]/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 let stats = {firstTry:0, reteaches:0};
 const main = document.getElementById('main');
 
 if(!DEV_PREVIEW){ document.getElementById('preview').style.display = 'none'; }
+
+/* ===== sidebar + cross-unit progress ===== */
+const THIS_UNIT = 'unit-anatomy';   // this file's canonical id (robust even if the file is renamed)
+const ALL_UNITS = ['unit-biochem','unit-genetics','unit-anatomy','unit-biodiversity'];
+const UNIT_NAMES = {
+  'unit-biochem':'Biochemistry', 'unit-genetics':'Genetics',
+  'unit-anatomy':'Anatomy', 'unit-biodiversity':'Biodiversity'
+};
+/* full table of contents for every unit (so locked units can be previewed here) */
+const UNIT_TOC = {
+  'unit-biochem':['Macromolecules','Cell structure & organelles','Membranes & osmosis','Enzymes','Cellular respiration',"Photosynthesis & a tree's mass",'Cell signaling','Putting it together'],
+  'unit-genetics':['Mitosis & cancer','Meiosis & chromosome number','Dominant vs recessive','Genes, alleles & chromosomes','Same DNA, different cells','DNA → RNA → protein','Mutations','Putting it together'],
+  'unit-anatomy':['Homeostasis','Innate vs adaptive immunity','Self vs non-self','How vaccines work','Reproductive hormones & the pill','Putting it together'],
+  'unit-biodiversity':['Natural selection','What "fittest" means','Species & speciation','Community interactions','The microbiome','Putting it together'],
+};
+const CUR = THIS_UNIT;
+let maxReached = 0;
+const expanded = new Set([CUR]);   // which unit rows are open; current unit open by default
+const LS_DONE='pulse.done', LS_HALF='pulse.half', LS_RESULTS='pulse.results';
+function lsArr(k){ try{return JSON.parse(localStorage.getItem(k))||[];}catch(e){return [];} }
+function lsAdd(k,v){ try{const a=lsArr(k); if(!a.includes(v)){a.push(v);localStorage.setItem(k,JSON.stringify(a));}}catch(e){} }
+const isDone=b=>lsArr(LS_DONE).includes(b);
+const isHalf=b=>lsArr(LS_HALF).includes(b);
+function planList(){ return unitOrder.length?unitOrder:ALL_UNITS; }
+function unitAccessible(i){
+  const list=planList();
+  if(list[i]===CUR) return true;
+  if(i===0) return true;
+  const prev=list[i-1];
+  return isDone(prev)||isHalf(prev)||isDone(list[i]);
+}
+function closeSidebar(){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('sbBackdrop').classList.remove('show'); }
+function gotoUnit(b){
+  if(b===CUR){ closeSidebar(); return; }
+  location.href = b + '.html#' + PATH + '|' + planList().join(',');
+}
+function gotoConcept(i){
+  if(i>maxReached) return;
+  closeSidebar(); pos=i; attempts=0; lastWrong=null; renderTeach();
+}
+function renderSidebar(){
+  const sb=document.getElementById('sidebar'); if(!sb) return;
+  const list=planList();
+  const curIdx=Math.max(0,list.indexOf(CUR));
+  let html=`<div class="sb-head">Your plan · Unit ${curIdx+1} of ${list.length}</div>`;
+  list.forEach((b,i)=>{
+    const name=UNIT_NAMES[b]||b, done=isDone(b), current=(b===CUR), acc=unitAccessible(i);
+    const state=current?'current':(done?'done':(acc?'unlocked':'locked'));
+    const isOpen=expanded.has(b);
+    const mark=done?'&#10003;':(current?'&#9679;':(i+1));
+    let tag=''; if(done)tag='<span class="sb-utag done">done</span>';
+    else if(!current&&acc)tag='<span class="sb-utag unlk">open</span>';
+    else if(!acc)tag='<span class="sb-utag lock">locked</span>';
+    html+=`<div class="sb-unit ${state} ${isOpen?'exp':''}">
+      <div class="sb-urow" data-toggle="${b}">
+        <span class="sb-mark">${mark}</span><span class="sb-uname">${name}</span>${tag}
+        <span class="sb-caret">&#9662;</span>
+      </div>`;
+    if(isOpen){
+      html+=`<div class="sb-concepts">`;
+      if(current){
+        // live progress + back-navigation
+        stops.forEach((s,ci)=>{
+          const cdone=ci<pos, ccur=(ci===pos&&pos<stops.length);
+          const cstate=cdone?'done':(ccur?'cur':'up'), click=ci<=maxReached;
+          const dot=cdone?'&#10003;':(ccur?'&#9679;':(ci+1));
+          html+=`<div class="sb-crow ${cstate} ${click?'click':''}" ${click?`data-c="${ci}"`:''}>
+            <span class="sb-cdot">${dot}</span><span>${s.label}</span></div>`;
+        });
+      } else {
+        // preview another unit's contents
+        if(acc) html+=`<button class="sb-goto" data-goto="${b}">Open this unit &rarr;</button>`;
+        else html+=`<div class="sb-lock">Locked — finish earlier units to open. Preview:</div>`;
+        (UNIT_TOC[b]||[]).forEach((label,ci)=>{
+          html+=`<div class="sb-crow up"><span class="sb-cdot">${ci+1}</span><span>${label}</span></div>`;
+        });
+      }
+      html+=`</div>`;
+    }
+    html+=`</div>`;
+  });
+  sb.innerHTML=html;
+  sb.querySelectorAll('[data-toggle]').forEach(el=>el.onclick=()=>{
+    const b=el.dataset.toggle; expanded.has(b)?expanded.delete(b):expanded.add(b); renderSidebar();
+  });
+  sb.querySelectorAll('[data-goto]').forEach(el=>el.onclick=(e)=>{ e.stopPropagation(); gotoUnit(el.dataset.goto); });
+  sb.querySelectorAll('[data-c]').forEach(el=>el.onclick=(e)=>{ e.stopPropagation(); gotoConcept(+el.dataset.c); });
+}
 
 function buildStops(){
   const rank = tr(PATH);
@@ -466,15 +634,25 @@ function show(html, opts){
   main.innerHTML = `<section class="screen ${opts.wide?'wide':''}">${html}</section>`;
   window.scrollTo({top:0,behavior:'smooth'});
   renderProg(opts.prog);
+  renderSidebar();
 }
 
 /* ---- MATERIALS (syllabus browse, shown once before the unit) ---- */
 function renderMaterials(){
   const tabs = MODULE.materials.map((m,i)=>`<button data-i="${i}" class="${i===0?'on':''}">${m.label}</button>`).join('');
+  // auto-build "you'll be able to" list from each concept's learning objective
+  const outcomes = stops.map(s=>{
+    let t = (s.lo||'').replace(/^Lesson[^—]*—\s*/,'').trim();   // drop the "Lesson X —" prefix
+    t = t.charAt(0).toUpperCase()+t.slice(1);
+    return t;
+  });
   show(`
-    <div class="unitline">${MODULE.unit}</div>
-    <h2>Before you start</h2>
-    <p class="teach-body" style="margin-top:18px;">Skim the course materials — the schedule and learning objectives are what this review is built from.</p>
+    <div class="unitline">${MODULE.unit} &middot; ${PATH}</div>
+    <h2>At the end of this unit, you should be able to:</h2>
+    <ol class="outcomes">
+      ${outcomes.map((o,i)=>`<li><span class="onum">${i+1}</span><span>${o}</span></li>`).join('')}
+    </ol>
+    <p class="mat-intro">First, skim the course materials — this review is built straight from them.</p>
     <div class="mat-tabs" id="mattabs">${tabs}</div>
     <div class="mat-viewer" id="matframe"></div>
     <p class="mat-note">Not loading? <a id="matopen" href="${MODULE.materials[0].src}" target="_blank" rel="noopener">open this PDF in a new tab &#8599;</a> &middot; rendered inline — view over Live Server or GitHub Pages (not a file:// path).</p>
@@ -522,6 +700,7 @@ async function renderPdfInto(url, host){
 /* ---- TEACH ---- */
 function renderTeach(){
   const c = stops[pos];
+  maxReached = Math.max(maxReached, pos);
   show(`
     <div class="unitline">${MODULE.unit} &middot; ${PATH}</div>
     <h1 class="concept-title">${c.label}</h1>
@@ -560,6 +739,7 @@ function renderCheck(isReask, hint){
         return;
       }
       attempts++;
+      struggled.add(c.label);                        // this concept needed at least one retry
       if(!isReask) lastWrong = opt;                 // first question carries the misconception media
       const reOpt = (!isReask) ? opt : (lastWrong || opt);
       if(attempts <= 2){
@@ -647,6 +827,8 @@ function renderRecap(){
     const box = document.getElementById('r1');
     notes[c.label] = box ? box.value.trim() : '';
     pos++;
+    maxReached = Math.max(maxReached, pos);
+    if(pos >= Math.ceil(stops.length/2)) lsAdd(LS_HALF, CUR);   // past half → unlock next unit
     if(pos < stops.length) renderTeach(); else renderWrap();
   };
 }
@@ -679,7 +861,22 @@ function renderWrap(){
 }
 
 /* ---- DONE ---- */
+function saveResult(){
+  let all={}; try{ all=JSON.parse(localStorage.getItem(LS_RESULTS))||{}; }catch(e){}
+  all[CUR] = {
+    name: UNIT_NAMES[CUR]||CUR, path: PATH,
+    firstTry: stats.firstTry, total: stops.length, reteaches: stats.reteaches,
+    conf: conf, struggled: [...struggled],
+    recaps: stops.map(s=>({label:s.label, recap:s.recap})),
+    ts: Date.now()
+  };
+  try{ localStorage.setItem(LS_RESULTS, JSON.stringify(all)); }catch(e){}
+}
 function renderDone(){
+  lsAdd(LS_DONE, CUR); lsAdd(LS_HALF, CUR);   // this unit complete → unlocks the next
+  saveResult();                                // store performance for the final summary
+  const list = planList();
+  const isLast = list.indexOf(CUR) === list.length-1;
   show(`
     <div class="done">
       <div class="eyebrow" style="color:var(--moss)">Unit complete</div>
@@ -689,6 +886,10 @@ function renderDone(){
         <div class="ds"><div class="n">${stats.firstTry}/${stops.length}</div><div class="l">right first try</div></div>
         <div class="ds"><div class="n">${stats.reteaches}</div><div class="l">reteaches used</div></div>
         <div class="ds"><div class="n">${conf}/5</div><div class="l">your confidence</div></div>
+      </div>
+      <div class="checklist-block">
+        <h3>Before the exam, make sure you can recall:</h3>
+        ${stops.map((s,i)=>`<label class="ck-item"><input type="checkbox"><span>${s.recap}</span></label>`).join('')}
       </div>
       <div class="notes-block">
         <h3>Your notes</h3>
@@ -700,25 +901,75 @@ function renderDone(){
       </div>
       <div class="actions">
         <button class="btn ghost" id="restart">Replay this unit</button>
-        <button class="btn" id="nextunit">Next unit &rarr;</button>
+        <button class="btn" id="nextbtn">${isLast ? 'See your full review summary &rarr;' : 'Next unit &rarr;'}</button>
       </div>
     </div>
   `, {prog:false});
+  document.querySelectorAll('.ck-item').forEach(el=>{
+    el.querySelector('input').onchange = e => el.classList.toggle('on', e.target.checked);
+  });
   document.getElementById('restart').onclick = startPath;
-  document.getElementById('nextunit').onclick = ()=>{
-    const cur = (location.pathname.split('/').pop()||'').replace(/\.html$/,'');
-    const idx = unitOrder.indexOf(cur);
-    if(idx >= 0 && idx < unitOrder.length-1){
-      location.href = unitOrder[idx+1] + '.html#' + PATH + '|' + unitOrder.join(',');
-    } else {
-      alert(unitOrder.length ? 'That was the last unit in your plan 🎉' : 'Next unit isn\'t wired yet — pass an ordered plan from onboarding.');
-    }
+  document.getElementById('nextbtn').onclick = ()=>{
+    if(isLast){ renderSummary(); return; }
+    const idx = list.indexOf(CUR);
+    location.href = list[idx+1] + '.html#' + PATH + '|' + list.join(',');
   };
+}
+
+/* ---- FINAL SUMMARY (task-loop closure: reflect + review sheet + next steps) ---- */
+function renderSummary(){
+  let all={}; try{ all=JSON.parse(localStorage.getItem(LS_RESULTS))||{}; }catch(e){}
+  const order = planList();
+  const units = order.filter(b=>all[b]).map(b=>all[b]);
+  const doneN = units.length;
+  const avgConf = doneN ? Math.round(units.reduce((s,u)=>s+(u.conf||0),0)/doneN*10)/10 : 0;
+  const totalRe = units.reduce((s,u)=>s+(u.reteaches||0),0);
+  // focus list = concepts struggled across all units
+  const focus = [];
+  units.forEach(u=>(u.struggled||[]).forEach(lbl=>focus.push({unit:u.name, label:lbl})));
+  // review sheet = recaps grouped by unit
+  const sheet = units.map(u=>`
+    <div class="sum-unit">
+      <h4>${u.name} <span class="um">${u.firstTry}/${u.total} first try · confidence ${u.conf}/5</span></h4>
+      <div class="checklist-block" style="margin-top:0;">
+        ${(u.recaps||[]).map(r=>`<label class="ck-item"><input type="checkbox"><span>${r.recap}</span></label>`).join('')}
+      </div>
+    </div>`).join('');
+  const focusHtml = focus.length
+    ? `<ul>${focus.map(f=>`<li><span>${f.label}</span><span class="fu">${f.unit}</span></li>`).join('')}</ul>`
+    : `<div class="sum-empty">Nothing flagged — you got everything on the first or second try. Strong finish.</div>`;
+  show(`
+    <div class="done">
+      <div class="eyebrow" style="color:var(--moss)">Review complete</div>
+      <div class="big">Your BIOL 101 review, mapped.</div>
+      <p class="sub">Here's everything you covered, what to revisit, and a study sheet to take into the exam.</p>
+      <div class="done-stats">
+        <div class="ds"><div class="n">${doneN}/${order.length}</div><div class="l">units completed</div></div>
+        <div class="ds"><div class="n">${totalRe}</div><div class="l">reteaches used</div></div>
+        <div class="ds"><div class="n">${avgConf}/5</div><div class="l">avg confidence</div></div>
+      </div>
+    </div>
+    <div class="sum-focus">
+      <h3>Focus these before the exam</h3>
+      ${focusHtml}
+    </div>
+    <div class="checklist-block" style="max-width:600px;"><h3>Your exam study sheet</h3></div>
+    <div class="sum-sheet">${sheet || '<div class="sum-empty" style="text-align:center;">No completed units yet.</div>'}</div>
+    <div class="actions">
+      <button class="btn ghost" id="sumback">Back to this unit</button>
+      <button class="btn" id="sumreplay">Replay this unit</button>
+    </div>
+  `, {prog:false});
+  document.querySelectorAll('.ck-item').forEach(el=>{
+    el.querySelector('input').onchange = e => el.classList.toggle('on', e.target.checked);
+  });
+  document.getElementById('sumback').onclick = renderDone;
+  document.getElementById('sumreplay').onclick = startPath;
 }
 
 /* ---- path control ---- */
 function startPath(){
-  pos=0; attempts=0; conf=0; stats={firstTry:0, reteaches:0}; notes={}; finalReflection='';
+  pos=0; attempts=0; conf=0; maxReached=0; stats={firstTry:0, reteaches:0}; notes={}; finalReflection=''; struggled=new Set();
   buildStops();
   renderMaterials();
 }
@@ -728,6 +979,14 @@ document.querySelectorAll('#pathswitch button').forEach(b=>{
     PATH=b.dataset.p; startPath();
   };
 });
+
+/* mobile sidebar toggle */
+document.getElementById('menuToggle').onclick = ()=>{
+  const sb=document.getElementById('sidebar');
+  const open=sb.classList.toggle('open');
+  document.getElementById('sbBackdrop').classList.toggle('show', open);
+};
+document.getElementById('sbBackdrop').onclick = closeSidebar;
 
 /* init */
 buildStops();
