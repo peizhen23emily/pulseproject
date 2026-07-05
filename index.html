@@ -600,7 +600,7 @@ function renderS6(){
                       : (u.gap ? 'gap' : 'refresh');
     const tagcls = i===0 ? '' : (u.gap ? 'gap' : 'muted');
     el.innerHTML =
-      '<div class="circle">'+u.id+'</div>' +
+      '<div class="circle">'+(i+1)+'</div>' +
       '<div class="nlabel">'+u.name+'</div>' +
       '<div class="ntag '+tagcls+'">'+tag+'</div>';
     inner.appendChild(el);
